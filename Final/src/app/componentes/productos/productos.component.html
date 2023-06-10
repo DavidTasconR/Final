@@ -1,0 +1,101 @@
+<app-menu></app-menu>
+<div class="contenedorprincipal">
+    <div class="alert alert-dark" role="alert">
+        Modulo Productos
+      </div>
+    
+
+
+      <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal" (click)="Nuevo()">Nuevo</button>
+
+      
+
+      <table class="table table-hover table-dark">
+        <thead>
+          <tr>
+           
+            <th scope="col">Nombre</th>
+            <th scope="col">categoria</th>
+            <th scope="col">Presupuesto</th>
+            <th scope="col">Descripcion</th>
+            
+          </tr>
+        </thead>
+        
+        <tbody>
+          <tr *ngFor="let item of datos">
+            
+            <td (click)="EditarId(item._id)">{{item.nombre}}</td>
+            <td (click)="EditarId(item._id)">{{item.categoria}}</td>
+            <td (click)="EditarId(item._id)">{{item.presupuesto}}</td>
+            <td (click)="EditarId(item._id)">{{item.descripcion}}</td>
+
+            <td>
+                <button type="button" class="btn btn-outline-danger" (click)="Eliminar(item._id)">Eliminar</button>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+
+
+
+
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Datos de Productos</h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                     </button>
+            </div>
+      <div class="modal-body">
+        <div>
+          <div class="form-group">
+            <label for="nombre" class="col-form-label">Nombre del proyecto:</label>
+            <input type="text" class="form-control" id="nombre" [(ngModel)]="nombre">
+          </div>
+        
+        
+        <div class="form-group" >
+            <label for="categoria">categoria</label>
+            <select class="form-control" id="categoria" [(ngModel)]="categoria" >
+              <option value="ServiciosIT">Servicios IT</option>
+              <option value="Ingenieria">Ingeniería y afines</option>
+              <option value="GestionDeProyectos">Gestión de Proyectos</option>
+              <option value="Interventorias">Interventorías</option>
+              <option value="ContableyFinanzas">Contable y Finanzas</option>
+            
+              
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="presupuesto" class="col-form-label">Presupuesto :</label>
+            <input type="text" class="form-control" id="presupuesto" [(ngModel)]="presupuesto">
+          </div>
+
+          <div class="form-group">
+            <label for="descripcion">Descripcion :</label>
+            <textarea class="form-control" id="descripcion" rows="5" [(ngModel)]="descripcion"></textarea>
+          </div>
+
+
+
+          <app-subirarchivos
+          [urldestino]="destino"
+          [path]="path"
+          [fileName]="'userFile'"> 
+        </app-subirarchivos>
+  
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" *ngIf="id != ''" (click)="Actualizar()">Actualizar</button>
+        <button type="button" class="btn btn-outline-dark" *ngIf="id == ''" (click)="Guardar()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+

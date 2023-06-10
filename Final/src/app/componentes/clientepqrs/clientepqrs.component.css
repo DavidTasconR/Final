@@ -1,0 +1,9 @@
+div#mipqrs{
+    width: 500px;
+margin-left: calc(50% - 250px);
+border: solid 1px white;
+background: gray;
+padding: 38px;
+margin-top:27px ;
+border-radius: 22px;
+}

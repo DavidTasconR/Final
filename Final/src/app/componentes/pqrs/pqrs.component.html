@@ -1,0 +1,96 @@
+<app-menu></app-menu>
+<div class="contenedorprincipal">
+    <div class="alert alert-dark" role="alert">
+        Modulo PQRS
+      </div>
+    
+
+       
+
+
+      <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal" (click)="Nuevo()">Nuevo</button>
+
+      <table class="table table-hover table-dark">
+        <thead>
+          <tr>
+           
+            <th scope="col">Nombre</th>
+            <th scope="col">Estado</th>
+            <th scope="col"></th>
+            <th scope="col">Categoria</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <tr *ngFor="let item of datos">
+            <td class="text-truncate" (click)="EditarId(item._id)">{{item.nombre}}</td>
+            <td class="text-truncate" (click)="EditarId(item._id)">{{item.correo}}</td>
+            <td class="text-truncate" (click)="EditarId(item._id)">{{item.estado}}</td>
+            <td class="text-truncate" (click)="EditarId(item._id)">{{item.categoria}}</td>
+            
+            <td></td>
+            <td>{{item.categoria}}</td>
+            <td>
+                <button type="button" class="btn btn-outline-danger" (click)="Eliminar(item._id)">Eliminar</button>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+
+
+
+
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Datos de pqrs</h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                     </button>
+            </div>
+      <div class="modal-body">
+        <div>
+          <div class="form-group">
+            <label for="nombre" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" [(ngModel)]="nombre">
+          </div>
+          <div class="form-group">
+            <label for="telefono" class="col-form-label">telefono:</label>
+            <input type="text" class="form-control" id="telefono" [(ngModel)]="telefono">
+          </div> 
+          <div class="form-group">
+            <label for="correo" class="col-form-label">Correo:</label>
+            <input type="text" class="form-control" id="correo" [(ngModel)]="correo">
+          </div>
+          <div class="form-group">
+            <label for="mensaje" class="col-form-label">mensaje:</label>
+            <textarea rows="4" type="text" class="form-control" id="mensaje" [(ngModel)]="mensaje"></textarea>
+          </div>
+          <div class="form-group" >
+            <label for="estado">estado</label>
+            <select class="form-control" id="categoria" [(ngModel)]="estado">
+              <option value="Abierto">Abierto</option>
+              <option value="Cerrador">Cerrado</option>
+              
+            </select>
+          </div>
+
+        <div class="form-group" >
+            <label for="categoria">categoria</label>
+            <select class="form-control" id="categoria" [(ngModel)]="categoria">
+              <option value="Cliente">Cliente</option>
+              <option value="Proveedor">Proveedor</option>
+              
+            </select>
+          </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" *ngIf="id != ''" (click)="Actualizar()">Actualizar</button>
+        <button type="button" class="btn btn-outline-dark" *ngIf="id == ''" (click)="Guardar()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+

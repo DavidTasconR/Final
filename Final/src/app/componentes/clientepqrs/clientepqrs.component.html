@@ -1,0 +1,34 @@
+<app-header></app-header>
+
+<div id="mipqrs">
+<div class="modal-body">
+    <div>
+      <div class="form-group">
+        <label for="nombre" class="col-form-label">Nombre:</label>
+        <input type="text" class="form-control" id="nombre" [(ngModel)]="nombre">
+      </div>
+      <div class="form-group">
+        <label for="telefono" class="col-form-label">telefono:</label>
+        <input type="text" class="form-control" id="telefono" [(ngModel)]="telefono">
+      </div> 
+      <div class="form-group">
+        <label for="correo" class="col-form-label">Correo:</label>
+        <input type="text" class="form-control" id="correo" [(ngModel)]="correo">
+      </div>
+      <div class="form-group">
+        <label for="mensaje" class="col-form-label">mensaje:</label>
+        <textarea rows="4" type="text" class="form-control" id="mensaje" [(ngModel)]="mensaje"></textarea>
+      </div>
+
+    <div class="form-group" >
+        <label for="categoria">categoria</label>
+        <select class="form-control" id="categoria" [(ngModel)]="categoria">
+          <option value="Cliente">Cliente</option>
+          <option value="Proveedor">Proveedor</option>
+          
+        </select>
+      </div>
+
+      <button type="button" class="btn btn-outline-info" (click)="Guardar()">Enviar PQRS</button>
+
+    </div>

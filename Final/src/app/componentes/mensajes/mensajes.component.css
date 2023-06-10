@@ -1,0 +1,6 @@
+div#contenedormensajes {
+    position: absolute;
+    z-index: 9999999;
+    width: 40%;
+    right: 5px;
+}

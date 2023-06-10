@@ -1,0 +1,11 @@
+div#modulologin{
+
+width: 300px;
+border: solid 1px;
+padding: 26px;
+margin-left: calc(50% - 150px);
+margin-top: 50px;
+border-radius: 20px;
+
+
+}
