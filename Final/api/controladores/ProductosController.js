@@ -3,6 +3,7 @@ var ProductosModel = require("../modelos/ProductosModel.js").ProductosModel
 var ProductosController ={}
 
 const { response, request } = require("express")
+const { text } = require("body-parser")
 
 
 
@@ -11,7 +12,7 @@ ProductosController.Guardar = function(request,response){
     nombre:request.body.nombre,
     categoria:request.body.categoria,
     presupuesto:request.body.presupuesto,
-    descipcion:request.body.descipcion,
+    descripcion:request.body.descripcion,
     }
 
     if (post.nombre == undefined || post.nombre == null || post.nombre.trim()=="") {
@@ -52,7 +53,7 @@ ProductosController.Actualizar = function(request,response){
     var post = {
         nombre:request.body.nombre,
         categoria:request.body.categoria,
-        rol:request.body.rol
+        descripcion:request.body.descripcion
         }
     
         if (post.nombre == undefined || post.nombre == null || post.nombre.trim()=="") {

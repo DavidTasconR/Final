@@ -7,7 +7,9 @@ var usuariosSchema = new Schema({
 email:String,
 password:String,
 nombre:String,
-rol:String
+rol:String,
+codigoact:String, 
+estado:Number
 })
 
 const MyModel = mongoose.model("usuarios",usuariosSchema)
@@ -36,6 +38,9 @@ usuariosModel.Guardar = function(post,callback){
     instancia.email = post.email
     instancia.password = post.password
     instancia.rol = post.rol
+    instancia.estado=0;
+    var azar = Math.round(Math.random() * (99999 - 00000) + 100000)
+    instancia.codigoact= azar
 
     instancia.save((error,_creado) => {
         if(error){
@@ -43,7 +48,7 @@ usuariosModel.Guardar = function(post,callback){
             return callback({state:false})
         }
         else{
-            return callback({state:true})
+            return callback({state:true, azar:azar})
         }
     })
 }
@@ -101,6 +106,20 @@ usuariosModel.Actualizar = function(post,callback){
         })
 }
 
+usuariosModel.ActivarCuenta = function(post,callback){
+    MyModel.findOneAndUpdate({email:post.email, codigoact:post.codigo},
+        {   estado:1,},
+        (error,respuesta) =>{
+            if(error){
+                console.log(error)
+                return callback({state:false})
+            }
+            else{
+                return callback({state:true,data:respuesta})
+            }
+        })
+}
+
 usuariosModel.Eliminar = function(post,callback){
     MyModel.findByIdAndDelete(post.id,(error,respuesta) =>{
         if(error){
@@ -111,6 +130,19 @@ usuariosModel.Eliminar = function(post,callback){
             return callback({state:true})
         }
     })
+}
+
+
+usuariosModel.ValidarEstado = function(post,callback){
+    MyModel.find({email:post.email},{estado:1},(error,documentos) => {
+     if(error){
+         console.log(error)
+         return callback({state:false,datos:[]})
+     }
+     else{
+         return callback({state:true,datos:documentos})
+     }
+ })
 }
 
 module.exports.usuariosModel = usuariosModel

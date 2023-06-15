@@ -5,17 +5,27 @@
 
         <div class="form-group">
             <label for="nombre">Nombre</label>
-            <input type="text" class="form-control" id="nombre" placeholder="Nombre" >
+            <input type="text" class="form-control" id="nombre" placeholder="Nombre" [(ngModel)]="nombre">
           </div>
 
         <label for="email">Email</label>
-        <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Email">
+        <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Email" [(ngModel)]="email">
         
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)]="password">
       </div>
+
+      <div class="form-group" >
+        <label for="rol">rol</label>
+        <select class="form-control" id="rol" [(ngModel)]="rol">
+          <option value="Cliente">Cliente</option>
+          <option value="Proveedor">Proveedor</option>
+          
+        </select>
+      </div>
+
       <div class="form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1">
         <label class="form-check-label" for="exampleCheck1">Quieres recibir información de interés?</label>
@@ -26,7 +36,7 @@
         <input type="file" class="form-control-file" id="exampleFormControlFile1">
       </div> 
 
-      <button type="submit" class="btn btn-primary">Registrarse</button>
+      <button type="submit" class="btn btn-primary" (click)="Guardar()">Registrarse</button>
 </div>
     
 

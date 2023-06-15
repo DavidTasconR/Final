@@ -20,6 +20,7 @@ import { PqrsComponent } from './componentes/pqrs/pqrs.component';
 import { ClientepqrsComponent } from './componentes/clientepqrs/clientepqrs.component'
 import { InterceptorService } from './interceptor/interceptor.service';
 import { SubirarchivosComponent } from './componentes/subirarchivos/subirarchivos.component';
+import { ActivarcuentaComponent } from './componentes/activarcuenta/activarcuenta.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { SubirarchivosComponent } from './componentes/subirarchivos/subirarchivo
     SuscriptoresComponent,
     PqrsComponent,
     ClientepqrsComponent,
-    SubirarchivosComponent
+    SubirarchivosComponent,
+    ActivarcuentaComponent
   ],
   imports: [
     BrowserModule,

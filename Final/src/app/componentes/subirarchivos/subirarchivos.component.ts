@@ -1,5 +1,6 @@
 import { HttpEventType } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
+import { MensajesService } from 'src/app/servicios/mensajes.service';
 import { SubirarchivosService } from 'src/app/servicios/subirarchivos.service';
 
 @Component({
@@ -14,7 +15,7 @@ selectedFiles:any
 archivoseleccionado:any
 mensaje:string = ""
 
-constructor(private uploadServices: SubirarchivosService){}
+constructor(private uploadServices: SubirarchivosService, private msg:MensajesService){}
 
 @Input() urldestino:string = ""
 @Input() path:string =""
@@ -45,7 +46,7 @@ this.uploadServices.upload(this.archivoseleccionado,this.urldestino + this.path,
       }
       else{
         console.log(event.body)
-        this.mensaje=event.body.mensaje
+        this.mensaje = event.body.mensaje
 setTimeout(() => {
   this.progress = 0
   this.nombrearchivo = "Selecciona el archivo"

@@ -3,19 +3,19 @@ const session = require("express-session")
 var usuariosController = require("./api/controladores/usuariosController.js").usuariosController
 
  var ADministradorylogin = function(request,response,next){
-    console.log('------------:v------:v')
-    if (request.session.rol == undefined) {
-        response.json({state:false,error:true,mensaje:"Para hacer uso de esta session debes loguearte"})        
-        return false
-    }
+   console.log('------------:v------:v')
+   if (request.session.rol == undefined) {
+       response.json({state:false,error:true,mensaje:"Para hacer uso de esta session debes loguearte"})        
+       return false
+   }
     if (request.session.rol != "Administrador") {
-        response.json({state:false,error:true,mensaje:"te falta nivel papu"})
-    return false
+       response.json({state:false,error:true,mensaje:"te falta nivel papu"})
+   return false
 
 
 
-    }
-    next()
+ }
+  next()
 }
 
 app.post('/Usuario/Guardar', function(request, response){
@@ -26,7 +26,7 @@ app.post('/Usuario/CargarTodas', function(request, response){
     usuariosController.CargarTodas(request, response)
 })
 
-app.post('/Usuario/Actualizar',ADministradorylogin, function(request, response){
+app.post('/Usuario/Actualizar', function(request, response){
     usuariosController.Actualizar(request, response) 
 })
 
@@ -34,8 +34,12 @@ app.post('/Usuario/Eliminar',ADministradorylogin, function(request, response){
     usuariosController.Eliminar(request, response)
 })
 
-app.post('/Usuario/CargarId',ADministradorylogin, function(request, response){
+app.post('/Usuario/CargarId', function(request, response){
     usuariosController.CargarId(request, response)
+})
+
+app.post('/Usuario/ActivarCuenta', function(request, response){
+    usuariosController.ActivarCuenta(request, response)
 })
 
 app.post('/midata', function(request, response){
@@ -44,6 +48,10 @@ app.post('/midata', function(request, response){
 
 app.post('/Usuario/login', function(request, response){
     usuariosController.login(request, response)
+})
+
+app.post('/Usuario/Registrarse', function(request, response){
+    usuariosController.Registrarse(request, response)
 })
 
 app.post('/state', function(request, response){
@@ -86,10 +94,10 @@ app.post('/Producto/CargarId', function(request, response){
 
 var filesController = require("./api/controladores/filesController.js").filesController
 
-app.get('/files/:carpeta/:id', function(request, response){
+app.post('/files/:carpeta/:id', function(request, response){
 filesController.SubirArchivos(request, response)
 })
-app.get('/filesPdf/:carpeta/:id', function(request, response){
+app.post('/filesPdf/:carpeta/:id', function(request, response){
 filesController.SubirPdf(request, response)
 })
 

@@ -36,24 +36,6 @@ rol:string=""
   }
 
   
-Logout(){
-  var post = {
-    host:this.peticion.urllocal,
-    path:"/Usuario/Logout",
-    payload: {
-  
-      }
-  }
 
-      this.peticion.Post(post.host + post.path,post.payload).then((res:any) =>{
-      console.log(res)
-        if (res.state == false) {
-             this.msg.Load(res.mensaje,"danger",5000)
-         }else{
-          this.msg.Load(res.mensaje,"success",5000) 
-          this.route.navigate(['home'])
-          }
-       })
-}
 
 }

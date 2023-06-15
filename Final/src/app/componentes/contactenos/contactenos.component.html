@@ -1,3 +1,37 @@
 <app-header></app-header>
-<p>contactenos works!</p>
+<div id="contactenos">
+
+    <div>
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nombre" [(ngModel)]="nombre">
+          </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" [(ngModel)]="correo">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Perfil</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>Proveedor</option>
+            <option>Cliente</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect2">Área de interes</label>
+          <select multiple class="form-control" id="exampleFormControlSelect2">
+            <option>Servicios IT</option>
+            <option>Gestion de proyectos</option>
+            <option>Ingeniería</option>
+            <option>Interventorías</option>
+            <option>Contable y finanzas</option>
+          </select>
+        </div>
+        <div class="form-group">
+            <label for="mensaje" class="col-form-label">mensaje:</label>
+            <textarea rows="4" type="text" class="form-control" id="mensaje" [(ngModel)]="mensaje"></textarea>
+          </div>
+    </div>
+
+</div>
 <app-footer></app-footer>

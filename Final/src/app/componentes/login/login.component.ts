@@ -36,7 +36,7 @@ IniciarSesion(){
          if (res.rol =="Administrador") {
           this.route.navigate(['usuarios'])
           }else{
-            this.route.navigate(['home'])
+            this.route.navigate(['productos'])
           
           }
          }

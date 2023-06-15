@@ -18,7 +18,7 @@ const formData: FormData = new FormData
 formData.append(inputName,file)
 
 
-const req = new HttpRequest("GET",url,formData,{
+const req = new HttpRequest("POST",url,formData,{
   reportProgress:true,
   responseType:"json"
 })

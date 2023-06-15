@@ -9,6 +9,7 @@ import { ProductosComponent } from './componentes/productos/productos.component'
 import { SuscriptoresComponent } from './componentes/suscriptores/suscriptores.component';
 import { PqrsComponent } from './componentes/pqrs/pqrs.component';
 import { ClientepqrsComponent } from './componentes/clientepqrs/clientepqrs.component';
+import { ActivarcuentaComponent } from './componentes/activarcuenta/activarcuenta.component';
 
 const routes: Routes = [
   {path:"", redirectTo:"/home", pathMatch:"full"},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path:"suscriptores",component:SuscriptoresComponent, pathMatch:"full"},  
   {path:"pqrs",component:PqrsComponent, pathMatch:"full"},
   {path:"clientepqrs",component:ClientepqrsComponent, pathMatch:"full"},
+  {path: "activarcuenta/:email/:codigo",component:ActivarcuentaComponent,pathMatch:"full"},
   {path:"login",component:LoginComponent, pathMatch:"full"},
 ];
 

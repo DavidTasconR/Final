@@ -1,6 +1,6 @@
 var express = require('express')
 global.app = express()
-var config = require("./config.js").config
+global.config = require("./config.js").config
 var cors = require('cors')
 const mongoose = require("mongoose")
 global.path = require('path')
